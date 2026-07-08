@@ -83,3 +83,18 @@ The following manual adjustments were performed:
 - Confirmed that the Strategy Pattern produced the same output as the original implementation.
 - Added a StrategyFactory to reduce direct object creation in the main application.
 - Tested the application after each refactoring step to ensure identical functionality.
+
+---
+
+## JWT Authentication Handshake
+
+The authentication process follows a JSON Web Token (JWT) workflow.
+
+1. The user submits a username and password.
+2. The Authentication Service verifies the supplied password using bcrypt.
+3. If authentication succeeds, the service generates a signed JWT using the configured secret key and the HS256 algorithm.
+4. The JWT is returned to the client.
+5. Future requests include the JWT for authentication instead of resending the username and password.
+6. Services validate the JWT signature before granting access to protected resources.
+
+This approach improves security by avoiding repeated transmission of user credentials while allowing independent services to verify user identity.
