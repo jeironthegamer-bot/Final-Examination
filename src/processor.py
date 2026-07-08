@@ -1,17 +1,10 @@
 class DataProcessor:
 
-    def encrypt(self, data, key):
-        encrypted = []
+    def __init__(self, strategy):
+        self.strategy = strategy
 
-        for value in data:
-            encrypted.append(value ^ key)
+    def set_strategy(self, strategy):
+        self.strategy = strategy
 
-        return encrypted
-
-    def compress(self, data, factor):
-        compressed = []
-
-        for value in data:
-            compressed.append(round(value * factor))
-
-        return compressed
+    def process(self, data):
+        return self.strategy.process(data)

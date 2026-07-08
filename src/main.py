@@ -1,6 +1,8 @@
 from auth import authenticate
 from processor import DataProcessor
 
+from factory.strategy_factory import StrategyFactory
+
 
 def main():
     print("=== Legacy Data Processing System ===")
@@ -16,10 +18,22 @@ def main():
 
     data_stream = [78, 82, 91, 65, 40, 99, 88]
 
-    processor = DataProcessor()
+    # Create the factory
+    factory = StrategyFactory()
 
-    encrypted = processor.encrypt(data_stream, 0x4F)
-    compressed = processor.compress(encrypted, 0.85)
+    # Create the processor with the Encryption Strategy
+    processor = DataProcessor(
+        factory.create_strategy("encryption", 0x4F)
+    )
+
+    encrypted = processor.process(data_stream)
+
+    # Switch to the Compression Strategy
+    processor.set_strategy(
+        factory.create_strategy("compression", 0.85)
+    )
+
+    compressed = processor.process(encrypted)
 
     print("\nOriginal Data:")
     print(data_stream)
