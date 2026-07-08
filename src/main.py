@@ -10,11 +10,16 @@ def main():
     username = input("Username: ")
     password = input("Password: ")
 
-    if not authenticate(username, password):
+    token = authenticate(username, password)
+
+    if not token:
         print("Authentication Failed!")
         return
 
     print("\nAuthentication Successful!")
+
+    print("\nJWT Token:")
+    print(token)
 
     data_stream = [78, 82, 91, 65, 40, 99, 88]
 
