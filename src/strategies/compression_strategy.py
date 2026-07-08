@@ -1,5 +1,6 @@
 from src.strategies.strategy import ProcessingStrategy
 
+
 class CompressionStrategy(ProcessingStrategy):
 
     def __init__(self, factor):

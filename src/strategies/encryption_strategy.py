@@ -1,5 +1,6 @@
 from src.strategies.strategy import ProcessingStrategy
 
+
 class EncryptionStrategy(ProcessingStrategy):
 
     def __init__(self, key):
