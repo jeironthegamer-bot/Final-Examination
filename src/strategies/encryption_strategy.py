@@ -1,5 +1,4 @@
-from strategies.strategy import ProcessingStrategy
-
+from src.strategies.strategy import ProcessingStrategy
 
 class EncryptionStrategy(ProcessingStrategy):
 

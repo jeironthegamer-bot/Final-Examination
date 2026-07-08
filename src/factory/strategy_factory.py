@@ -1,5 +1,5 @@
-from strategies.encryption_strategy import EncryptionStrategy
-from strategies.compression_strategy import CompressionStrategy
+from src.strategies.encryption_strategy import EncryptionStrategy
+from src.strategies.compression_strategy import CompressionStrategy
 
 
 class StrategyFactory:

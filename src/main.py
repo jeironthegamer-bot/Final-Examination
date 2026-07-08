@@ -1,7 +1,6 @@
-from auth import authenticate
-from processor import DataProcessor
-
-from factory.strategy_factory import StrategyFactory
+from src.auth import authenticate
+from src.processor import DataProcessor
+from src.factory.strategy_factory import StrategyFactory
 
 
 def main():
